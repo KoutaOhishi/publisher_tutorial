@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="publisher_tutorial" name="dummy_led" type="dummy_LED.py" output="screen" />
+</launch>
