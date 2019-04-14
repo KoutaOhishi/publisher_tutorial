@@ -6,7 +6,7 @@ import rospy
 from std_msgs.msg import Bool, String
 
 console = """
-Color List.
+led_color List.
 1. Black
 2. Red
 3. Green
@@ -21,7 +21,7 @@ Color List.
 
 
 def main():
-    color_publisher = rospy.Publisher("/publisher_tutorial/color", String, queue_size=1)
+    led_color_publisher = rospy.Publisher("/publisher_tutorial/led_color", String, queue_size=1)
 
     while not rospy.is_shutdown():
         try:
@@ -29,28 +29,28 @@ def main():
             input_number = input("Please input number -> ")
 
             if input_number == 1:
-                color_publisher.publish("Black")
+                led_color_publisher.publish("Black")
 
             elif input_number == 2:
-                color_publisher.publish("Red")
+                led_color_publisher.publish("Red")
 
             elif input_number == 3:
-                color_publisher.publish("Green")
+                led_color_publisher.publish("Green")
 
             elif input_number == 4:
-                color_publisher.publish("Yellow")
+                led_color_publisher.publish("Yellow")
 
             elif input_number == 5:
-                color_publisher.publish("Blue")
+                led_color_publisher.publish("Blue")
 
             elif input_number == 6:
-                color_publisher.publish("Purple")
+                led_color_publisher.publish("Purple")
 
             elif input_number == 7:
-                color_publisher.publish("Cyan")
+                led_color_publisher.publish("Cyan")
 
             elif input_number == 8:
-                color_publisher.publish("White")
+                led_color_publisher.publish("White")
 
             elif input_number == 9:
                 break
@@ -63,5 +63,5 @@ def main():
 
 
 if __name__ == "__main__":
-    rospy.init_node("color_select")
+    rospy.init_node("led_color_select")
     main()

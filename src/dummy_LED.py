@@ -8,38 +8,38 @@ from std_msgs.msg import Bool, String
 
 class DummyLED:
     def __init__(self):
-        self.sub_bool = rospy.Subscriber("/publisher_tutorial/led_state", Bool, self.sub_bool_callback)
-        self.sub_color = rospy.Subscriber("/publisher_tutorial/color", String, self.sub_color_callback)
+        self.sub_bool = rospy.Subscriber("/publisher_tutorial/led_on", Bool, self.sub_bool_callback)
+        self.sub_led_color = rospy.Subscriber("/publisher_tutorial/led_color", String, self.sub_led_color_callback)
 
-        self.led_state = False
-        self.color = "WHITE"
+        self.led_on = True
+        self.led_color = "RED"
 
     def sub_bool_callback(self, msg):
-        self.led_state = msg.data
+        self.led_on = msg.data
 
-    def sub_color_callback(self, msg):
-        self.color = str(msg.data).upper()
+    def sub_led_color_callback(self, msg):
+        self.led_color = str(msg.data).upper()
 
-    def console(self, color):
-        if color == "BLACK":
+    def console(self, led_color):
+        if led_color == "BLACK":
             return "\033[30m" + "● ● ● ● ● 　" + "\033[0m"
 
-        elif color == "RED":
+        elif led_color == "RED":
             return "\033[31m" + "● ● ● ● ● 　" + "\033[0m"
 
-        elif color == "GREEN":
+        elif led_color == "GREEN":
             return "\033[32m" + "● ● ● ● ● 　" + "\033[0m"
 
-        elif color == "YELLOW":
+        elif led_color == "YELLOW":
             return "\033[33m" + "● ● ● ● ● 　" + "\033[0m"
 
-        elif color == "BLUE":
+        elif led_color == "BLUE":
             return "\033[34m" + "● ● ● ● ● 　" + "\033[0m"
 
-        elif color == "PURPLE":
+        elif led_color == "PURPLE":
             return "\033[35m" + "● ● ● ● ● 　" + "\033[0m"
 
-        elif color == "CYAN":
+        elif led_color == "CYAN":
             return "\033[36m" + "● ● ● ● ● 　" + "\033[0m"
 
         else: #WHITE
@@ -48,8 +48,8 @@ class DummyLED:
     def main(self):
         while not rospy.is_shutdown():
             try:
-                if self.led_state == True:
-                    sys.stdout.write("\r"+self.console(self.color))
+                if self.led_on == True:
+                    sys.stdout.write("\r"+self.console(self.led_color))
                     sys.stdout.flush()
                     time.sleep(0.1)
 
