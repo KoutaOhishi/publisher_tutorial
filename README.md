@@ -73,9 +73,19 @@ rostopic list
 ## 課題
 pythonやc++でtopicをpublishできるようになろう！  
 ただpublishするだけだと面白くないので、ちょっとした処理を加えてください。  
+publisher_tutorial/src/の中にサンプルプログラムがあるので参考にしてください。
 
 - Lチカさせてみよう  
   ![](/img/flashing.gif)  
 
 - キー入力で色を変えれるようにしよう  
   ![](/img/color_change.gif)
+
+### C++を使う際の注意点
+
+c++のファイルを追加する場合は、CMakeList.txtの末尾に以下を加える  
+```
+# 名前は適宜変更してください。
+add_executable({node_name} src/{file_name}.cpp)
+target_link_libraries({node_name} ${catkin_LIBRARIES})
+```
