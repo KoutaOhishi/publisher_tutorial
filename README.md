@@ -1,4 +1,4 @@
-# ros_publisher_tutorial
+# publisher_tutorial
 --- ---
 
 publisherの基本的な使い方について学ぶ。
