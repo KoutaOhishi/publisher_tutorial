@@ -2,7 +2,7 @@
 #include "std_msgs/Bool.h"
 
 int main(int argc, char **argv){
-  ros::init(argc, argv, "led_flashing");
+  ros::init(argc, argv, "led_flashing", ros::init_options::AnonymousName);
   ros::NodeHandle nh;
   ros::Publisher publisher = nh.advertise<std_msgs::Bool>("/publisher_tutorial/led_on", 1);
   ros::Rate sleep_time(1);
