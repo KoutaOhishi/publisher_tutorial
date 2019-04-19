@@ -12,7 +12,7 @@ publisherの基本的な使い方について学ぶ。
 ```
 cd catkin_ws/src
 
-git clone https://github.com/KoutaOhishi/ros_publisher_tutorial.git
+git clone https://github.com/KoutaOhishi/publisher_tutorial.git
 
 cd ros_publisher_tutorial/src
 
