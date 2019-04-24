@@ -7,14 +7,14 @@ from std_msgs.msg import Bool
 
 if __name__ == "__main__":
     rospy.init_node("led_flashing", anonymous=True)
-    publishr = rospy.Publisher("/publisher_tutorial/led_on", Bool, queue_size=1)
+    publisher = rospy.Publisher("/publisher_tutorial/led_on", Bool, queue_size=1)
 
     while not rospy.is_shutdown():
         try:
-            publishr.publish(True)
+            publisher.publish(True)
             time.sleep(1)
 
-            publishr.publish(False)
+            publisher.publish(False)
             time.sleep(1)
 
         except KeyboardInterrupt: #Ctrl+cが入力された
