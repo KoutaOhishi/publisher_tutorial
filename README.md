@@ -14,7 +14,7 @@ cd catkin_ws/src
 
 git clone https://github.com/KoutaOhishi/publisher_tutorial.git
 
-cd ros_publisher_tutorial/src
+cd publisher_tutorial/src
 
 chmod 755 *
 
